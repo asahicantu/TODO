@@ -9,6 +9,8 @@ import TodoItem from '../TodoItem'
 import CreateTodoButton from '../CreateTodoButton'
 
 export default function AppUI(props: {
+    loading:boolean,
+    error:string,
     todoValues: Array<Todo>,
     completeTodo: (id: string) => void,
     deleteTodo: (id: string) => void,
@@ -25,6 +27,7 @@ export default function AppUI(props: {
             return props.todoValues
         }
     }
+    const filteredTodos = searchTodo(searchText)
     return (
         <Fragment>
             <TodoHeader />
@@ -33,7 +36,10 @@ export default function AppUI(props: {
                 count={props.todoValues.length} />
             <TodoSearch searchText={searchText} setSearchText={setSearchText} />
             <TodoList>
-                {searchTodo(searchText).map(t => (
+                {props.loading && <p>Page loading</p>}
+                {props.error && props.error.length > 0 && <p>{props.error}</p>}
+                {!props.loading && !filteredTodos.length && <p>Empty todos</p> }
+                {filteredTodos.map(t => (
                     <TodoItem key={t.id.toString()}
                         todoItem={t}
                         onCompleteTodo={props.completeTodo}
