@@ -1,8 +1,12 @@
 import React from 'react'
 import './CreateTodoButton.css'
-import { Todo } from '../Types/TodoTypes'
+import { Todo } from '../@types/TodoTypes'
 import { Guid } from 'guid-typescript'
-export default function CreateTodoButton(props: { onCreateTodo: (item: Todo) => void }): JSX.Element {
+import { TodoContext } from '../context/TodoContext'
+import { TodoContextType } from '../@types/TodoContextType'
+
+export default function CreateTodoButton(): JSX.Element {
+    const { createTodo } = React.useContext(TodoContext) as TodoContextType
     const oncreateItem = () => {
         const text = prompt('Todo text:')?.toString()
         const todo: Todo = {
@@ -11,7 +15,7 @@ export default function CreateTodoButton(props: { onCreateTodo: (item: Todo) => 
             dueDate: new Date(),
             completed: false
         }
-        props.onCreateTodo(todo)
+        createTodo(todo)
     }
     return (
         <button

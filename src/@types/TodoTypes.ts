@@ -1,4 +1,3 @@
-import { Guid } from 'guid-typescript'
 type Todo = {
     id:string,
     text: string,
