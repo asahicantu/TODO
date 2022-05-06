@@ -6,12 +6,15 @@ type TodoContextType = {
     todos: Array<Todo>,
     loading: boolean,
     error: string,
-    saveTodos: (todos: Array<Todo>) => void,
-    completeTodo: (id: string) => void,
-    deleteTodo: (id: string) => void,
-    createTodo: (item: Todo) => void,
+    saveTodos(todos: Array<Todo>): void,
+    completeTodo(id: string): void,
+    deleteTodo(id: string) : void,
+    createTodo(item: Todo) : void,
     searchText: string,
     setSearchText: Dispatch<SetStateAction<string>>
+    openModal:boolean,
+    setOpenModal: Dispatch<SetStateAction<boolean>>,
+    oncreateItem(): void
 }
 
 

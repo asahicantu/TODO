@@ -1,10 +1,12 @@
 import React, { ReactElement, ReactNode } from 'react'
-import { TodoContextType} from '../@types/TodoContextType'
+import { TodoContextType } from '../@types/TodoContextType'
 import { Todo } from '../@types/TodoTypes'
 import useLocalStorage from '../hooks/UseLocalStorage'
 
-const TodoContext = React.createContext<TodoContextType|null>(null)
-function TodoProvider(props: { children: ReactNode} ):ReactElement {
+const TodoContext = React.createContext<TodoContextType | null>(null)
+function TodoProvider(props: { children: ReactNode }): ReactElement {
+    const [searchText, setSearchText] = React.useState('')
+    const [openModal, setOpenModal] = React.useState(false)
     const appName = 'TODO_APP'
     const
         {
@@ -13,7 +15,7 @@ function TodoProvider(props: { children: ReactNode} ):ReactElement {
             loading,
             error
         } = useLocalStorage<Array<Todo>>(appName, [])
-    
+
     const completeTodo = (id: string) => {
         const idx = todos.findIndex(t => t.id == id)
         if (!todos[idx].completed) {
@@ -33,7 +35,13 @@ function TodoProvider(props: { children: ReactNode} ):ReactElement {
         saveTodos([...todos])
     }
 
-    const [searchText, setSearchText] = React.useState('')
+    const oncreateItem = () => {
+        setOpenModal(true)
+        return
+        // const text = prompt('Todo text:')?.toString()
+        // createTodo(new Todo{})
+    }
+
     return (
         <TodoContext.Provider value={
             {
@@ -46,7 +54,10 @@ function TodoProvider(props: { children: ReactNode} ):ReactElement {
                 deleteTodo,
                 createTodo,
                 searchText,
-                setSearchText
+                setSearchText,
+                openModal,
+                setOpenModal,
+                oncreateItem
             }}>
             {props.children}
         </TodoContext.Provider>
@@ -54,4 +65,4 @@ function TodoProvider(props: { children: ReactNode} ):ReactElement {
     )
 }
 
-export {TodoProvider, TodoContext}
+export { TodoProvider, TodoContext }
