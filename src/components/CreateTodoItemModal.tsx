@@ -52,7 +52,7 @@ export default function CreateTodoItemModal() {
         >
             <Stack className="modal-Background" sx={style} component="form" noValidate direction="column" spacing={1} onSubmit={(e: React.SyntheticEvent) => { e.preventDefault(); onSubmitTodo(e) }}>
                 <TextField id="txtTaskName" name="text" label="Task Name" variant="standard" />
-                <TextField
+                {/* <TextField
                     id="txtTaskDate"
                     label="Date"
                     type="date"
@@ -60,7 +60,7 @@ export default function CreateTodoItemModal() {
                     InputLabelProps={{
                         shrink: true,
                     }}
-                />
+                /> */}
                 <Button variant="contained" name="date" type="submit">Create Task</Button>
             </Stack>
         </Modal>
