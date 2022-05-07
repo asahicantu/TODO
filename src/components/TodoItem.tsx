@@ -16,6 +16,7 @@ import DeleteIcon from '@mui/icons-material/Delete'
 
 export default function TodoItem(props: { todoItem: Todo }) {
     const { completeTodo, deleteTodo } = React.useContext(TodoContext) as TodoContextType
+    const dateStr = props.todoItem.dueDate ??  moment(props.todoItem.dueDate).format('dd.MM.yyyy')
     return (
         <ListItem>
             <ListItemButton
@@ -34,7 +35,7 @@ export default function TodoItem(props: { todoItem: Todo }) {
                 </ListItemIcon>
                 <ListItemText primary={
                     <Typography className={`TodoItem-text ${props.todoItem.completed && 'TodoItem-text--complete'}`}>
-                        {/* {`${props.todoItem.text} ${props.todoItem.dueDate && moment(props.todoItem.dueDate).format('dd.MM.yyyy')}`} */}
+                        {`${props.todoItem.text} ${dateStr}`}
                     </Typography>
                 }
                 />
