@@ -7,7 +7,7 @@ type TodoContextType = {
     loading: boolean,
     error: string,
     saveTodos(todos: Array<Todo>): void,
-    completeTodo(id: string): void,
+    completeTodo(id: string, completed:boolean): void,
     deleteTodo(id: string) : void,
     createTodo(item: Todo) : void,
     searchText: string,

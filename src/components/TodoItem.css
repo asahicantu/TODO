@@ -1,76 +1,13 @@
-.TodoItem{
-    background-color: #FAFAFA;
-    position:relative;
-    display: flex;
-    justify-content: center;
-    align-items:center;
-    margin-top: 24px;
-    box-shadow: 0px, 5px, 50px rgba(32,35,41,0.15);
-    color: #96bbf3;
-}
-
-.TodoItem--complete{
-    background-color: #e2e4e2;
-}
-
-.TodoItem-p{
+.TodoItem-text{
     margin: 24px 0, 24px 24px;
     width: calc(100% - 120ox);
-    font-size: 18px;
+    font-size: 36px !important;;
     font-weight: bold;
-    line-height: 24px;
+    line-height: 36px !important;;
+    color:white
 }
 
-.TodoItem-p--complete{
+.TodoItem-text--complete{
     text-decoration:line-through;
     color: darkgray;
-}
-
-.Icon {
-    position: absolute;
-    cursor:pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 48px;
-    width: 48px;
-    font-size: 20px;
-    font-weight: bolder;
-    border:5px;
-    border-radius: 50%;
-    display: block;
-    justify-content: center;
-    align-items: center;
-    height: 40px;
-    width: 40px;
-    transform: rotate(0,0);
-    transition: .3s ease;
-}
-
-.Icon-check{
-    left: 12px;
-    color:#c9ccca;
-}
-
-.Icon-check--active{
-    background-color: rgba(59, 153, 40, 0.973);
-    box-shadow: 0px 5px 10px rgba(9, 182, 130, 0.5);
-    color: white;
-}
-.Icon-check--active:hover{
-    transform:scale(1.1,1.1);
-    transform:rotatex(50deg);
-}
-
-.Icon-delete{
-    height: 30px;
-    width: 30px;
-    background-color: rgba(228, 4, 4, 0.8);
-    color: white;
-    top: -15px;
-    right:0;
-}
-
-.Icon-delete:hover{
-    transform:scale(1.1,1.1);
 }

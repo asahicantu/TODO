@@ -16,12 +16,10 @@ function TodoProvider(props: { children: ReactNode }): ReactElement {
             error
         } = useLocalStorage<Array<Todo>>(appName, [])
 
-    const completeTodo = (id: string) => {
+    const completeTodo = (id: string,completed:boolean) => {
         const idx = todos.findIndex(t => t.id == id)
-        if (!todos[idx].completed) {
-            todos[idx].completed = true
-            saveTodos([...todos])
-        }
+        todos[idx].completed = completed
+        saveTodos([...todos])
     }
 
     const deleteTodo = (id: string) => {

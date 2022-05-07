@@ -13,15 +13,6 @@ export default function TodoCounter(): ReactElement {
         <Stack spacing={2} direction="row" sx={{ mb: 1 }} alignItems="center">
             <Box>
                 <Chip label={`${completedTodos} of ${todoCount} completed `} />
-                <Slider
-                    min={0}
-                    max={todoCount}
-                    aria-label="Complted-todos"
-                    value={completedTodos}
-                    color="secondary"
-                    valueLabelDisplay="auto"
-                />
-
             </Box>
         </Stack>
     )
