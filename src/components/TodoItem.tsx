@@ -34,7 +34,7 @@ export default function TodoItem(props: { todoItem: Todo }) {
                 </ListItemIcon>
                 <ListItemText primary={
                     <Typography className={`TodoItem-text ${props.todoItem.completed && 'TodoItem-text--complete'}`}>
-                        {`${props.todoItem.text} ${props.todoItem.dueDate && moment(props.todoItem.dueDate).format('dd.MM.yyyy')}`}
+                        {/* {`${props.todoItem.text} ${props.todoItem.dueDate && moment(props.todoItem.dueDate).format('dd.MM.yyyy')}`} */}
                     </Typography>
                 }
                 />
